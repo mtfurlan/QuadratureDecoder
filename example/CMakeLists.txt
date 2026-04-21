@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.14)
 set(CMAKE_EXPORT_COMPILE_COMMANDS true)
 
 set(PICO_SDK_FETCH_FROM_GIT on)
-include(pico_sdk_import.cmake)
+include(pico_sdk_import.cmake) # must include pico sdk before project(…)
 
 
 set(PROJECT quadrature_example)
@@ -24,7 +24,5 @@ pico_add_extra_outputs(${PROJECT})
 
 target_link_libraries(${PROJECT} PUBLIC pico_stdlib)
 
-
-
-add_subdirectory(../ libasdf)
+add_subdirectory(../ QuadratureDecoding)
 target_link_libraries(${PROJECT} PRIVATE QuadratureDecoder)
