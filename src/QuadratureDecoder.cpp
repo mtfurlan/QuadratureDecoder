@@ -41,6 +41,11 @@ bool QuadratureDecoder::init(PIO pio)
 
 int32_t QuadratureDecoder::addQuadratureEncoder(uint32_t pinBase)
 {
+    gpio_init(pinBase+0);
+    gpio_init(pinBase+1);
+    gpio_disable_pulls(pinBase+0);
+    gpio_disable_pulls(pinBase+1);
+
     // Find an unused state machine in the PIO to run the code for counting this encoder.
     int32_t stateMachine = pio_claim_unused_sm(m_pio, false);
     if (stateMachine < 0)

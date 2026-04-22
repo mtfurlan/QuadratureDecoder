@@ -14,10 +14,6 @@ int main()
     // Configure the pins connected to the encoder to be inputs with no pull-up or pull-down as my encoders already
     // had external pull-ups on the hall effect sensors.
     const uint pinBase = 2;
-    gpio_init(pinBase+0);
-    gpio_init(pinBase+1);
-    gpio_disable_pulls(pinBase+0);
-    gpio_disable_pulls(pinBase+1);
 
     // Initialize the PIO to count the quadrature encoder ticks in the background.
     decoder.init(pio0);
